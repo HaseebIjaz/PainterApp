@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainterApp", "PainterApp\PainterApp.csproj", "{8CBD4FB4-B89B-4878-B85F-B30AE2F3AD1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PainterApp.BusinessLogic", "PainterApp.BusinessLogic\PainterApp.BusinessLogic.csproj", "{DD044F02-9F42-4F14-8341-8EC3C45D3C63}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CBD4FB4-B89B-4878-B85F-B30AE2F3AD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CBD4FB4-B89B-4878-B85F-B30AE2F3AD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CBD4FB4-B89B-4878-B85F-B30AE2F3AD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CBD4FB4-B89B-4878-B85F-B30AE2F3AD1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD044F02-9F42-4F14-8341-8EC3C45D3C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD044F02-9F42-4F14-8341-8EC3C45D3C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD044F02-9F42-4F14-8341-8EC3C45D3C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD044F02-9F42-4F14-8341-8EC3C45D3C63}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C1C3C63-875B-45D7-92A8-F364CCC7FCC8}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.lmkr.net/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = PainterApp\\PainterApp.csproj
+		SccProjectName1 = PainterApp
+		SccLocalPath1 = PainterApp
+		SccProjectUniqueName2 = PainterApp.BusinessLogic\\PainterApp.BusinessLogic.csproj
+		SccProjectName2 = PainterApp.BusinessLogic
+		SccLocalPath2 = PainterApp.BusinessLogic
+	EndGlobalSection
+EndGlobal

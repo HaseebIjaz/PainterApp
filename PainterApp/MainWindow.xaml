@@ -1,0 +1,186 @@
+﻿<base:NotifiableWindow xmlns:base="clr-namespace:PainterApp.BaseClasses"
+                       x:Class="PainterApp.MainWindow"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+                       xmlns:local="clr-namespace:PainterApp.Converters"
+                       xmlns:enumNamespace="clr-namespace:PainterApp.Enums"
+                       mc:Ignorable="d"
+                       Title="Draw It"
+                       Height="450"
+                       Width="800">
+    <base:NotifiableWindow.Resources>
+        <local:ColorBrushConverter x:Key="colorConverter" />
+        <local:BooleanEnumConverter x:Key="boolEnumConverter" />
+    </base:NotifiableWindow.Resources>
+
+    <!--
+     For Studying Style, Read this : https://www.c-sharpcorner.com/article/overview-of-styles-in-wpf/
+    For Studting Triggers : https://www.c-sharpcorner.com/UploadFile/87b416/wpf-triggers/
+    -->
+    <Grid Name="WindowGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="76" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ToolBar Name="ShapesToolBar"
+                 Background="CornflowerBlue"
+                 Height="76"
+                 VerticalAlignment="Top">
+
+            <Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+
+                <Grid.Resources>
+                    <Style x:Key="btnStyle"
+                           TargetType="ToggleButton">
+                        <Setter Property="Button.Background"
+                                Value="AliceBlue" />
+                        <Setter Property="Button.FontSize"
+                                Value="14" />
+                        <Setter Property="Button.FontFamily"
+                                Value="Times New Roman" />
+                        <Style.Triggers>
+                            <Trigger Property="Button.IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Button.Background"
+                                        Value="Black" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton Grid.Column="0"
+                              Width="63"
+                              Height="36"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Ellipse}}"
+                              ToolTip="Ellipse Shape">
+                    <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Editing-Ellipse.ico" />
+                </ToggleButton>
+                <ToggleButton Grid.Column="1"
+                              Width="53"
+                              Height="36"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Line}}"
+                              ToolTip="Line Shape">
+                    <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Editing-Line.ico" />
+                </ToggleButton>
+                <ToggleButton Grid.Column="2"
+                              Width="66"
+                              Height="36"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Rectangle}}"
+                              ToolTip="Rectangle Shape">
+                    <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Windows-8-Editing-Rectangle-Stroked.ico" />
+                </ToggleButton>
+                <ToggleButton Grid.Column="3"
+                              Width="66"
+                              Height="36"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Pencil}}"
+                              ToolTip="Pencil">
+                    <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Custom-Icon-Design-Pretty-Office-10-Pencil.ico" />
+                </ToggleButton>
+                <ToggleButton Grid.Column="4"
+                              Width="66"
+                              Height="36"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Polyline}}"
+                              ToolTip="Polyline">
+                    <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Maps-Polyline.ico" />
+                </ToggleButton>
+                <ToggleButton Grid.Column="5"
+                              Width="66"
+                              Height="36"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Polygon}}"
+                              ToolTip="Polygon">
+                    <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Maps-Polygon.ico" />
+                </ToggleButton>
+            </Grid>
+
+            <StackPanel Margin="50,2,0,0"
+                        Orientation="Vertical">
+                <TextBox Name="StrokeColorLablel"
+                         Margin="0,20,0,0"
+                         FontSize="12"
+                         Background="White">Stroke Color:</TextBox>
+                <xctk:ColorPicker Name="StrokeColorPicker"
+                                  Width="157"
+                                  Margin="0,0,0,0"
+                                  FontSize="15"
+                                  DisplayColorTooltip="True"
+                                  DisplayColorAndName="True"
+                                  ShowStandardColors="False"
+                                  ShowTabHeaders="True"
+                                  SelectedColor="{Binding Path=StrokeBrush,Converter={StaticResource colorConverter},Mode=TwoWay}" />
+            </StackPanel>
+
+            <StackPanel Margin="0,2,0,0"
+                        Orientation="Vertical">
+                <TextBox Name="FillColorLablel"
+                         Margin="0,20,0,0"
+                         FontSize="12"
+                         Background="White">Fill Color:</TextBox>
+                <xctk:ColorPicker Name="FillColorPicker"
+                                  Width="157"
+                                  FontSize="15"
+                                  DisplayColorTooltip="True"
+                                  DisplayColorAndName="True"
+                                  ShowStandardColors="False"
+                                  ShowTabHeaders="True"
+                                  SelectedColor="{Binding Path=FillBrush,Converter={StaticResource colorConverter},Mode=OneWayToSource}" />
+            </StackPanel>
+
+            <StackPanel Margin="0,0,0,0"
+                        Orientation="Horizontal">
+                <TextBlock Name="StrokeThicknessTextBox"
+                           Margin="0,0,0,0"
+                           FontSize="10"
+                           Background="White"
+                           Height="25"
+                           Width="80">Stroke Thickness:</TextBlock>
+                <Slider Name="StrokeThicknessSlider"
+                        Background="White"
+                        Height="25"
+                        Minimum="1"
+                        Maximum="10"
+                        Width="130"
+                        Margin="0,0,0,0">
+                    <Slider.Value>
+                        <Binding Path="StrokeThickness"
+                                 Mode="TwoWay">
+                        </Binding>
+                    </Slider.Value>
+                </Slider>
+                <TextBlock Background="White"
+                           Margin="0,0,0,0"
+                           Height="25"
+                           Width="35">
+                    <TextBlock.Text>
+                        <Binding ElementName="StrokeThicknessSlider"
+                                 Path="Value" />
+                    </TextBlock.Text>
+                </TextBlock>
+            </StackPanel>
+
+        </ToolBar>
+        <Canvas Name="DrawingCanvas"
+                Grid.Row="1"
+                Background="WhiteSmoke"
+                ToolTip="Drawing Board"
+                HorizontalAlignment="Stretch"
+                Margin="10,10,10,10"
+                MouseDown="DrawingCanvas_MouseDown"
+                MouseMove="DrawingCanvas_MouseMove"
+                MouseUp="DrawingCanvas_MouseUp">
+        </Canvas>
+
+    </Grid>
+</base:NotifiableWindow>
