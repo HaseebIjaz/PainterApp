@@ -1,0 +1,22 @@
+https://stackoverflow.com/questions/2830040/get-any-ui-elements-on-screen-position-for-any-application-in-windows
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.visual.pointfromscreen?redirectedfrom=MSDN&view=netframework-4.8#System_Windows_Media_Visual_PointFromScreen_System_Windows_Point_
+https://social.msdn.microsoft.com/Forums/vstudio/en-US/dace65d2-6b4d-41da-9457-42dc194d6a0e/how-can-i-find-a-wpf-element-by-absolute-screen-coordinates?forum=wpf
+
+
+Cursor Related: 
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.cursor?view=netframework-4.8
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.cursor.position?view=netframework-4.8#System_Windows_Forms_Cursor_Position
+
+Mouse Static Class
+https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.mouse.leftbutton?view=netframework-4.8#System_Windows_Input_Mouse_LeftButton
+
+https://stackoverflow.com/questions/39901515/datagrid-mouse-event-as-parameters
+
+Important (View First):
+https://stackoverflow.com/questions/12642645/get-click-position-over-command-binding
+https://stackoverflow.com/questions/30047415/how-do-i-get-mouse-positions-in-my-view-model
+https://www.technical-recipes.com/2017/how-to-get-mouse-cursor-position-in-wpf-mvvm-applications/
+
+
+MVVM Practices :
+https://codereview.stackexchange.com/questions/169047/correct-use-of-mvvm-and-mouseevent-handling
