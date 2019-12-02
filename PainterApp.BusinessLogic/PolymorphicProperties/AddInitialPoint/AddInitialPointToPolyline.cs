@@ -10,8 +10,8 @@ namespace PainterApp.BusinessLogic.PolymorphicProperties.AddInitialPoint
             if (point == null) return;
             if (shape == null) return;
 
-            Polyline polygon = shape as Polyline;
-            polygon.Points.Add(point);
+            Polyline polyline = shape as Polyline;
+            polyline.Points.Add(point);
         }
     }
 }

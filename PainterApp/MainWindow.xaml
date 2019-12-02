@@ -7,6 +7,7 @@
                        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
                        xmlns:local="clr-namespace:PainterApp.Converters"
                        xmlns:enumNamespace="clr-namespace:PainterApp.Enums"
+                       xmlns:i="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
                        mc:Ignorable="d"
                        Title="Draw It"
                        Height="450"
@@ -25,6 +26,7 @@
             <RowDefinition Height="76" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        
         <ToolBar Name="ShapesToolBar"
                  Background="CornflowerBlue"
                  Height="76"
@@ -171,16 +173,47 @@
             </StackPanel>
 
         </ToolBar>
-        <Canvas Name="DrawingCanvas"
-                Grid.Row="1"
-                Background="WhiteSmoke"
-                ToolTip="Drawing Board"
-                HorizontalAlignment="Stretch"
-                Margin="10,10,10,10"
-                MouseDown="DrawingCanvas_MouseDown"
-                MouseMove="DrawingCanvas_MouseMove"
-                MouseUp="DrawingCanvas_MouseUp">
-        </Canvas>
 
+        <ItemsControl ItemsSource="{Binding Collection}"
+                      Grid.Row="1"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      x:Name="CanvasItemsControl">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas  IsItemsHost="True"
+                             HorizontalAlignment="Stretch"
+                             VerticalAlignment="Stretch"
+                             Background="WhiteSmoke"
+                             Name="DrawingCanvas">
+                    </Canvas>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+        </ItemsControl>
+
+
+        <i:Interaction.Triggers>
+
+            <i:EventTrigger EventName="MouseDown"
+                            SourceName="CanvasItemsControl">
+                <i:InvokeCommandAction Command="{Binding Path=MouseDownCommand}"
+                                       PassEventArgsToCommand="True" />
+            </i:EventTrigger>
+
+            <i:EventTrigger EventName="MouseMove"
+                            SourceName="CanvasItemsControl">
+                <i:InvokeCommandAction Command="{Binding Path=MouseMoveCommand}"
+                                       PassEventArgsToCommand="True" />
+            </i:EventTrigger>
+            
+            <i:EventTrigger EventName="MouseUp"
+                            SourceName="CanvasItemsControl">
+                <i:InvokeCommandAction Command="{Binding Path=MouseUpCommand}"
+                                       PassEventArgsToCommand="True" />
+            </i:EventTrigger>
+            
+        </i:Interaction.Triggers>
+        
     </Grid>
 </base:NotifiableWindow>
