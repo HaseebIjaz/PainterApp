@@ -13,8 +13,11 @@
                        Height="450"
                        Width="800">
     <base:NotifiableWindow.Resources>
-        <local:ColorBrushConverter x:Key="colorConverter" />
-        <local:BooleanEnumConverter x:Key="boolEnumConverter" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/..\PainterApp;component/Views/ConvertersDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </base:NotifiableWindow.Resources>
 
     <!--
@@ -66,42 +69,42 @@
                 <ToggleButton Grid.Column="0"
                               Width="63"
                               Height="36"
-                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Ellipse}}"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource BooleanEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Ellipse}}"
                               ToolTip="Ellipse Shape">
                     <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Editing-Ellipse.ico" />
                 </ToggleButton>
                 <ToggleButton Grid.Column="1"
                               Width="53"
                               Height="36"
-                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Line}}"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource BooleanEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Line}}"
                               ToolTip="Line Shape">
                     <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Editing-Line.ico" />
                 </ToggleButton>
                 <ToggleButton Grid.Column="2"
                               Width="66"
                               Height="36"
-                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Rectangle}}"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource BooleanEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Rectangle}}"
                               ToolTip="Rectangle Shape">
                     <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Windows-8-Editing-Rectangle-Stroked.ico" />
                 </ToggleButton>
                 <ToggleButton Grid.Column="3"
                               Width="66"
                               Height="36"
-                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Pencil}}"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource BooleanEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Pencil}}"
                               ToolTip="Pencil">
                     <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Custom-Icon-Design-Pretty-Office-10-Pencil.ico" />
                 </ToggleButton>
                 <ToggleButton Grid.Column="4"
                               Width="66"
                               Height="36"
-                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Polyline}}"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource BooleanEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Polyline}}"
                               ToolTip="Polyline">
                     <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Maps-Polyline.ico" />
                 </ToggleButton>
                 <ToggleButton Grid.Column="5"
                               Width="66"
                               Height="36"
-                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource boolEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Polygon}}"
+                              IsChecked="{Binding Path=ShapeType, Mode=TwoWay,Converter={StaticResource BooleanEnumConverter},ConverterParameter={x:Static enumNamespace:ShapeType.Polygon}}"
                               ToolTip="Polygon">
                     <Image  Source="pack://application:,,,/..\PainterApp;component/Icons/Icons8-Ios7-Maps-Polygon.ico" />
                 </ToggleButton>
@@ -121,7 +124,7 @@
                                   DisplayColorAndName="True"
                                   ShowStandardColors="False"
                                   ShowTabHeaders="True"
-                                  SelectedColor="{Binding Path=StrokeBrush,Converter={StaticResource colorConverter},Mode=TwoWay}" />
+                                  SelectedColor="{Binding Path=StrokeBrush,Converter={StaticResource ColorBrushConverter},Mode=TwoWay}" />
             </StackPanel>
 
             <StackPanel Margin="0,2,0,0"
@@ -137,7 +140,7 @@
                                   DisplayColorAndName="True"
                                   ShowStandardColors="False"
                                   ShowTabHeaders="True"
-                                  SelectedColor="{Binding Path=FillBrush,Converter={StaticResource colorConverter},Mode=OneWayToSource}" />
+                                  SelectedColor="{Binding Path=FillBrush,Converter={StaticResource ColorBrushConverter},Mode=OneWayToSource}" />
             </StackPanel>
 
             <StackPanel Margin="0,0,0,0"

@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PainterApp.Views"
+                    xmlns:converters="clr-namespace:PainterApp.Converters">
+    <converters:BooleanEnumConverter x:Key="BooleanEnumConverter" />
+    <converters:ColorBrushConverter x:Key="ColorBrushConverter" />
+</ResourceDictionary>
